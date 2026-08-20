@@ -1,22 +1,33 @@
 # S M Rokanuzzaman Rokan — Professional Portfolio
 
-Final GitHub Pages portfolio package.
+GitHub-ready static portfolio website.
 
-## Deploy
-1. Open the `rokan-portfolio` GitHub repository.
-2. Upload all files and folders from this package to the repository root.
-3. Commit the changes to the `main` branch.
-4. In GitHub: Settings → Pages → Deploy from a branch → `main` → `/ (root)`.
-5. Open: https://smrrokan-cpu.github.io/rokan-portfolio/
+## Files
+- `index.html`
+- `style.css`
+- `script.js`
+- `profile.jpg`
+- `sitemap.xml`
+- `robots.txt`
 
-## Included
-- Responsive portfolio website
-- Profile photo
-- Project image gallery
-- Project filters
-- Full-screen image lightbox
-- Mobile menu
-- WhatsApp/contact/social links
-- Downloadable CV
-- SEO metadata, canonical URL and structured data
-- robots.txt and sitemap.xml
+## SEO included
+- Clear page title using the exact name: **S M Rokanuzzaman Rokan**
+- Descriptive meta description
+- Canonical URL
+- Search-engine crawl/index directives
+- Open Graph / social metadata
+- Person/ProfilePage structured data
+- XML sitemap
+- robots.txt pointing Google to the sitemap
+
+## GitHub Pages
+Keep all files in the repository root and publish from `main` / `/ (root)`.
+
+## Google Search Console
+After the site is live:
+1. Add the URL-prefix property: `https://smrrokan-cpu.github.io/rokan-portfolio/`
+2. Verify ownership using one of Google's offered verification methods.
+3. Open **Sitemaps** and submit: `sitemap.xml`
+4. Use **URL Inspection** for the homepage and choose **Request indexing**.
+
+Google does not guarantee instant indexing or a first-place ranking. Search Console helps Google discover/crawl the site and lets you request indexing.

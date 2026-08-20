@@ -1,8 +1,29 @@
-const menu=document.querySelector('.menu');const header=document.querySelector('.site-header');
-menu?.addEventListener('click',()=>{const open=header.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));menu.textContent=open?'×':'☰';});
-document.querySelectorAll('nav a').forEach(a=>a.addEventListener('click',()=>{header.classList.remove('open');menu?.setAttribute('aria-expanded','false');menu.textContent='☰';}));
+const menu=document.querySelector('.menu');
+const header=document.querySelector('.site-header');
+menu?.addEventListener('click',()=>{
+  const open=header.classList.toggle('open');
+  menu.setAttribute('aria-expanded',String(open));
+  menu.setAttribute('aria-label',open?'Close menu':'Open menu');
+});
+document.querySelectorAll('nav a').forEach(a=>a.addEventListener('click',()=>{
+  header.classList.remove('open');
+  menu?.setAttribute('aria-expanded','false');
+}));
 document.getElementById('year').textContent=new Date().getFullYear();
-const bar=document.getElementById('progressBar');function progress(){const max=document.documentElement.scrollHeight-innerHeight;bar.style.width=`${max>0?scrollY/max*100:0}%`;}addEventListener('scroll',progress,{passive:true});progress();
-const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}}),{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
-const filterButtons=document.querySelectorAll('[data-filter]'),cards=document.querySelectorAll('.project-card');filterButtons.forEach(btn=>btn.addEventListener('click',()=>{filterButtons.forEach(b=>b.classList.remove('active'));btn.classList.add('active');const f=btn.dataset.filter;cards.forEach(c=>c.classList.toggle('hidden',f!=='all'&&c.dataset.category!==f));}));
-const lightbox=document.getElementById('lightbox'),lightboxImg=lightbox.querySelector('img'),lightboxText=lightbox.querySelector('p');cards.forEach(card=>card.addEventListener('click',()=>{lightboxImg.src=card.dataset.image;lightboxImg.alt=card.dataset.title;lightboxText.textContent=card.dataset.title;lightbox.classList.add('open');lightbox.setAttribute('aria-hidden','false');document.body.classList.add('lock');}));function closeLightbox(){lightbox.classList.remove('open');lightbox.setAttribute('aria-hidden','true');document.body.classList.remove('lock');}document.querySelector('.lightbox-close').addEventListener('click',closeLightbox);lightbox.addEventListener('click',e=>{if(e.target===lightbox)closeLightbox();});addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox();});
+
+const bar=document.getElementById('progressBar');
+const progress=()=>{
+  const max=document.documentElement.scrollHeight-window.innerHeight;
+  bar.style.width=`${max>0?(scrollY/max)*100:0}%`;
+};
+addEventListener('scroll',progress,{passive:true}); progress();
+
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
